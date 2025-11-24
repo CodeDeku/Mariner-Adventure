@@ -225,7 +225,7 @@
         import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // --- CONFIGURATION ---
-        // Ensure your keys are correct here
+        // Your API Keys
         const apiKey = "AIzaSyCHQwsQVZdf8gZEE8ok88I6FRKp30hoK-M"; 
 
         const firebaseConfig = {
@@ -237,7 +237,7 @@
 			appId: "1:76799051768:web:fdd3641b597adfc6a0780d"
         };
 
-        // Initialize Firebase globally (outside init) using the config object directly
+        // Initialize Firebase immediately
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
