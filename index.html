@@ -745,7 +745,7 @@
         // --- CORE FUNCTIONS ---
 
         async function init() {
-            const firebaseConfig = JSON.parse(__firebase_config);
+            const firebaseConfig = JSON.parse(firebase_config);
             const app = initializeApp(firebaseConfig);
             auth = getAuth(app);
             db = getFirestore(app);
