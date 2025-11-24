@@ -225,7 +225,7 @@
         import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // --- CONFIGURATION ---
-        // Your API Keys
+        // Your API Keys (Added from your previous file)
         const apiKey = "AIzaSyCHQwsQVZdf8gZEE8ok88I6FRKp30hoK-M"; 
 
         const firebaseConfig = {
@@ -237,7 +237,7 @@
 			appId: "1:76799051768:web:fdd3641b597adfc6a0780d"
         };
 
-        // Initialize Firebase immediately
+        // Initialize Firebase immediately (Global Scope)
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
@@ -740,14 +740,8 @@
         // --- CORE FUNCTIONS ---
 
         async function init() {
-            // --- FIX FOR THE USER'S BUG: Remove JSON.parse ---
-            // The variable `firebaseConfig` at the top is already a JavaScript object.
-            // We do NOT need to parse it.
-            
-            // Use the `firebaseConfig` variable directly
-            const app = initializeApp(firebaseConfig);
-            auth = getAuth(app);
-            db = getFirestore(app);
+            // Firebase is already initialized globally above.
+            // We just need to set up the UI logic here.
             
             window.confirmReset = confirmReset;
 
@@ -1165,6 +1159,8 @@
                 loader.innerHTML = '<span class="text-xs text-red-900">Vision Failed</span>';
             }
         }
+
+        init();
     </script>
 </body>
 </html>
